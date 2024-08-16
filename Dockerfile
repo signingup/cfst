@@ -11,7 +11,7 @@ RUN go build -o /go/bin/cloudflarespeedtest
 
 FROM alpine:latest
 
-RUN apk add --no-cache git wget tzdata dcron openrc bash nano curl ca-certificates net-tools bind-tools
+RUN apk add --no-cache git wget rsync sed grep tzdata dcron openrc bash nano curl ca-certificates net-tools bind-tools
 
 COPY --from=builder /go/bin/. /usr/local/bin/
 COPY --from=builder /cfst/ip*.txt /usr/local/bin/
